@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :todo do
-    name "MyString"
+    name "Some Todo"
   end
 end
 
