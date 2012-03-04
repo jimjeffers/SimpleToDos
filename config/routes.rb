@@ -1,4 +1,13 @@
 SimpleToDo::Application.routes.draw do
+  resources :lists do
+    resources :todos do
+      post 'complete', :on => :member
+      post 'revert', :on => :member
+      get 'completed', :on => :collection
+      get 'pending', :on => :collection
+    end
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
