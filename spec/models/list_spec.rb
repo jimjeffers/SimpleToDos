@@ -84,6 +84,11 @@ describe List do
       @list.reload
       @list.pending_todos_count.should == 1
     end
+    it "should have one todo marked as complete if one is reverted to incomplete" do
+      @todo_2.revert!
+      @list.reload
+      @list.completed_todos_count.should == 1
+    end
 
   end
 end
