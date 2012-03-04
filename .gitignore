@@ -5,6 +5,7 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 .DS_Store
+.rvmrc
 
 # Ignore bundler config
 /.bundle
