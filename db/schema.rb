@@ -11,19 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120228021635) do
+ActiveRecord::Schema.define(:version => 20120304001057) do
 
   create_table "lists", :force => true do |t|
-    t.string   "name",                    :default => ""
-    t.integer  "completed_todos_count",   :default => 0
-    t.integer  "incompleted_todos_count", :default => 0
-    t.integer  "todos_count",             :default => 0
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.string   "name",                  :default => ""
+    t.integer  "completed_todos_count", :default => 0
+    t.integer  "pending_todos_count",   :default => 0
+    t.integer  "todos_count",           :default => 0
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   add_index "lists", ["completed_todos_count"], :name => "index_lists_on_completed_todos_count"
-  add_index "lists", ["incompleted_todos_count"], :name => "index_lists_on_incompleted_todos_count"
+  add_index "lists", ["pending_todos_count"], :name => "index_lists_on_incompleted_todos_count"
   add_index "lists", ["todos_count"], :name => "index_lists_on_todos_count"
 
   create_table "todos", :force => true do |t|
