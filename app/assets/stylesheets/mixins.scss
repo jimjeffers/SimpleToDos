@@ -1,0 +1,70 @@
+@mixin rounded($side, $radius: 10px) {
+  border-#{$side}-radius: $radius;
+  -moz-border-radius-#{$side}: $radius;
+  -webkit-border-#{$side}-radius: $radius;
+}
+
+@mixin round($radius: 10px) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin shadowed($color, $blur: 0, $x: 0, $y: 0) {
+  -o-box-shadow: $x $y $blur $color;
+  -icab-box-shadow: $x $y $blur $color;
+  -khtml-box-shadow: $x $y $blur $color;
+  -moz-box-shadow: $x $y $blur $color;
+  -webkit-box-shadow: $x $y $blur $color;
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin transitioned($property: all, $time: 0.5s, $ease: ease-in-out) {
+  @if $property == transform {
+      -ms-transition: -ms-transform $ease $ease;
+      -moz-transition: -moz-transform $ease $ease;
+      -o-transition: -o-transform $ease $ease;
+      -webkit-transition: -webkit-transform $time $ease;
+      transition: $property $time $ease;
+  } @else {
+    -moz-transition: $property $ease $ease;
+    -o-transition: $property $ease $ease;
+    -webkit-transition: $property $time $ease;
+    transition: $property $time $ease;
+  }
+}
+
+@mixin rotate($degrees: 0deg){
+    -moz-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    -webkit-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+@mixin scale($amount: 0){
+    -moz-transform: scale($amount);
+    -o-transform: scale($amount);
+    -webkit-transform: scale($amount);
+  transform: scale($amount);
+}
+
+@mixin translate($x: 0, $y: 0){
+    -moz-transform: translate($x,$y);
+    -o-transform: translate($x,$y);
+    -webkit-transform: translate($x,$y);
+  transform: translate($x,$y);
+}
+
+@mixin transform($x: 0, $y: 0, $amount: 0, $degrees: 0deg){
+    -moz-transform: translate($x,$y) rotate($degrees) scale($amount);
+    -o-transform: translate($x,$y) rotate($degrees) scale($amount);
+    -webkit-transform: translate($x,$y) rotate($degrees) scale($amount);
+  transform: translate($x,$y) rotate($degrees) scale($amount);
+}
+
+@mixin transform-origin($x: 0, $y: 0){
+    -moz-transform-origin: $x $y;
+    -o-transform-origin: $x $y;
+    -webkit-transform-origin: $x $y;
+  transform-origin: $x $y;
+}

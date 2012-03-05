@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  
+  <% %w(notice error).each do |type| %>
+    <% unless flash[type.to_sym].blank? %>
+      <div class="flash" id="flash_<%= type %>"><p><%= flash[type.to_sym] %></p></div>
+    <% end %>
+  <% end %>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

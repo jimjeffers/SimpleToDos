@@ -1,0 +1,14 @@
+<h1>Create a new Todo List</h1>
+<%= error_messages_for :list %>
+
+<%= form_for @list do |f| -%>
+  <ul class="form_fields">
+    <li>
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.submit "Create List", :disable_with => 'Create Listing...' %>
+    </li>
+  </ul>
+<% end -%>

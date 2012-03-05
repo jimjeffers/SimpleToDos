@@ -1,0 +1,18 @@
+@import "colors";
+
+.flash {
+  color: $white;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 0.25rem 1rem;
+}
+
+#flash_notice {
+  background: $teal;
+}
+
+#flash_error {
+  background: $error;
+}
