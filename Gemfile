@@ -7,6 +7,7 @@ gem 'rails', '3.2.1'
 
 gem 'sqlite3'
 gem 'aasm'
+gem 'dynamic_form'
 
 group :development, :test do
   gem 'rspec-rails'                     # Use rspec to do our integration tests.
@@ -17,6 +18,7 @@ group :development, :test do
   gem 'sqlite3'                         
   gem 'evergreen', :require => 'evergreen/rails'
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard'
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem "spork", "> 0.9.0.rc"
