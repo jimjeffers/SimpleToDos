@@ -8,7 +8,8 @@ class Todo < ActiveRecord::Base
 	# Callback hooks:
  	after_create :increment_list_count!
  	after_destroy :decrement_list_count!
-
+  #Validations
+  validates_presence_of :name
   #Scopes
   scope :pending, where("aasm_state='pending'")
   

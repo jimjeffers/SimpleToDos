@@ -4,4 +4,5 @@ class List < ActiveRecord::Base
   
   # Validations
   # validates_presence_of :name # hint: this one is a freebie
+  validates_presence_of :name
 end

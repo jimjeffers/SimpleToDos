@@ -4,3 +4,18 @@
   ...
 <% end -%> 
 -->
+
+<h1>Create a new Todo</h1>
+<%= error_messages_for :todo %>
+
+<%= form_for [@list,@todo] do |f| -%>
+  <ul class="form_fields">
+    <li>
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.submit "Add Todo"%>
+    </li>
+  </ul>
+<% end -%>
