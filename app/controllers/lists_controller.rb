@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   def new
     # Hint: We need to provide an instance of a list to the view.
-    # @list = List.new
+    @list = List.new
   end
   
   # Hint:
@@ -9,7 +9,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(params[:list])
     if @list.save
-      redirect_to @list#, :notice => "List successfully created."
+      redirect_to @list, :notice =>"List successfully created."
     else
       flash[:error] = "Your list could not be saved."
       render :action => "new"
@@ -19,7 +19,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     # Hint: You might need a todo to reference in your todo form.
-    # @todo = Todo.new
+    @todo = Todo.new
   end
   
   # Missing actions:
@@ -28,5 +28,18 @@ class ListsController < ApplicationController
   # update
   # destroy
   # list
-  
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  def list
+  end
+
+
 end

@@ -42,8 +42,9 @@ describe "Managing Lists:" do
     end
     
     it "should provide a confirmation that my todo was created" do
-      fill_in "name", :with => "My first Todo"
-      clck_button "Add Todo"
+      fill_in "todo_name", :with => "My first Todo"
+      click_button "Add Todo"
+      save_and_open_page
       page.should have_content "Your todo was successfully created."
     end
   end
