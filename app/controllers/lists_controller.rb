@@ -22,12 +22,15 @@ class ListsController < ApplicationController
     @todo = Todo.new
   end
   
+  def index
+    @lists = List.all
+  end
+  
   # Missing actions:
   # --------------------
   # edit
   # update
   # destroy
-  # list
 
   def edit
   end

@@ -1,5 +1,15 @@
 <h1><%= @list.name %></h1>
-<section id="todo_form">
-  <h2>Add a new todo:</h2>
-  <%= render :partial => "todos/form" %>
-</section>
+<nav>
+  <ul>
+    <li><%= link_to "Add a new Todo", new_list_todo_path(@list), :id => "new_todo" %></li>
+    <li><%= link_to "Return to available lists", lists_path, :id => "return_to_lists" %></li>
+  </ul>
+</nav>
+
+<% if !@list.todos.blank? %>
+  <% for todo in @list.todos %>
+    <article><%= todo.name %></article>
+  <% end %>
+<% else %>
+  
+<% end %>

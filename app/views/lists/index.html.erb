@@ -1,0 +1,10 @@
+<h1>Available Lists</h1>
+<% if !@lists.blank? %>
+  <ul id="available_lists">
+  <% for list in @lists %>
+    <li><%= link_to list.name, list %></li>
+  <% end %>
+  </ul>
+<% else %>
+  
+<% end %>
