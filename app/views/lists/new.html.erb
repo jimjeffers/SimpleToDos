@@ -1,4 +1,11 @@
 <h1>Create a new Todo List</h1>
+
+<nav>
+  <ul>
+    <li><%= link_to "Return to Available Lists", lists_path, :id => "return_to_lists", :class => "back_button" %></li>
+  </ul>
+</nav>
+
 <%= error_messages_for :list %>
 
 <%= form_for @list do |f| -%>

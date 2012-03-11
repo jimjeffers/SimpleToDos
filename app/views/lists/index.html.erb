@@ -1,8 +1,15 @@
 <h1>Available Lists</h1>
+
+<nav>
+  <ul>
+    <li><%= link_to "Add a New List", new_list_path, :id => "new_list" %></li>
+  </ul>
+</nav>
+
 <% if !@lists.blank? %>
   <ul id="available_lists">
   <% for list in @lists %>
-    <li><%= link_to list.name, list %></li>
+    <li><%= link_to list.name, list %> <%= link_to "X", list, :method => "delete", :class => "delete_list" %></li>
   <% end %>
   </ul>
 <% else %>

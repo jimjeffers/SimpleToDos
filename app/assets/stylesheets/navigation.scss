@@ -1,0 +1,17 @@
+@import "colors";
+
+.back_button {
+  background: $black;
+  color: $white;
+  display: block;
+  font-weight: bold;
+  left: 0;
+  padding: 1rem 2rem;
+  position: fixed;
+  text-decoration: none;
+  top: 70px;
+}
+
+.back_button:before {
+  content: "< ";
+}

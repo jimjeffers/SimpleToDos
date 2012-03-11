@@ -2,14 +2,20 @@
 <nav>
   <ul>
     <li><%= link_to "Add a new Todo", new_list_todo_path(@list), :id => "new_todo" %></li>
-    <li><%= link_to "Return to available lists", lists_path, :id => "return_to_lists" %></li>
+    <li><%= link_to "Return to available lists", lists_path, :id => "return_to_lists", :class => "back_button" %></li>
   </ul>
 </nav>
 
+
 <% if !@list.todos.blank? %>
-  <% for todo in @list.todos %>
-    <article><%= todo.name %></article>
+  <%= form_tag do %>
+    <ul id="available_todos">
+      <% for todo in @list.todos %>
+        <!-- HINT: The third parameter for check_box_tag is a boolean that checks the box when set to true. -->
+        <li id="todo_<%= todo.id %>"><%= check_box_tag "todos", todo.id, false %><article><%= todo.name %></article> <%= link_to "X", [@list, todo], :method => "delete", :class => "delete_todo" %> <%= link_to "Edit", edit_list_todo_path(@list,todo), :class => "edit_todo" %></li>
+      <% end %>
+    </ul>
   <% end %>
 <% else %>
-  
+  <!-- There are no todo's yet. -->
 <% end %>

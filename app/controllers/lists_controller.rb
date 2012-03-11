@@ -30,7 +30,6 @@ class ListsController < ApplicationController
   # --------------------
   # edit
   # update
-  # destroy
 
   def edit
   end
@@ -39,9 +38,9 @@ class ListsController < ApplicationController
   end
 
   def destroy
-  end
-
-  def list
+    @list = List.find(params[:id])
+    @list.destroy
+    redirect_to lists_path
   end
 
 
