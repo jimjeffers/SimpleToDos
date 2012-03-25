@@ -1,0 +1,22 @@
+<h1><%= @list.name %></h2>
+<h2>Update List</h2>
+
+<nav>
+  <ul>
+    <li><%= link_to "Return to Available Lists", lists_path, :id => "return_to_lists", :class => "back_button" %></li>
+  </ul>
+</nav>
+
+<%= error_messages_for :list %>
+
+<%= form_for @list do |f| -%>
+  <ul id="edit_list">
+    <li>
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.submit "Update List" %>
+    </li>
+  </ul>
+<% end -%>
