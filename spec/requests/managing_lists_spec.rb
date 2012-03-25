@@ -191,9 +191,36 @@ describe "Managing Lists:" do
   end
   
   describe "Editing the details of a list" do
-    pending "should provide an edit link"
-    pending "should display the new name of the list once we update it"
-    pending "should not display the old name of the list once we update it"
-    pending "should allow us to return to the lists index if we choose not to edit it"
+    before(:each) do
+      @list = Factory(:list, :name => "Old name")
+      visit lists_path
+    end
+
+    it "should provide an edit link" do
+      within("#available_lists") do
+        page.should have_css ".edit_list"
+      end
+    end
+
+    it "should display the new name of the list once we update it" do
+      click_link "edit"
+      fill_in "list_name", :with => "Derek is Asian"
+      click_button "Update List"
+      page.should have_content "Derek is Asian"
+    end
+
+    it "should not display the old name of the list once we update it" do
+      page.should have_content "Old name"
+      click_link "edit"
+      fill_in "list_name", :with => "Derek is Asian"
+      click_button "Update List"
+      page.should_not have_content "Old name"
+    end
+    
+    it "should allow us to return to the lists index if we choose not to edit it" do
+      click_link "edit"
+      click_link "return_to_lists"
+      page.should have_content "Old name"
+    end
   end
 end

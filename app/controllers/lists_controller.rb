@@ -32,9 +32,17 @@ class ListsController < ApplicationController
   # update
 
   def edit
+    @list = List.find(params[:id])
   end
 
   def update
+    @list = List.find(params[:id])
+    if @list.update_attributes(params[:list])
+      redirect_to lists_path, :notice => "Your list was successfully updated."
+    else
+      flash[:error] = "Your new list could not be saved."
+      render :action => "edit"
+    end
   end
 
   def destroy
