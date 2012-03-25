@@ -12,7 +12,7 @@
     <ul id="available_todos">
       <% for todo in @list.todos %>
         <!-- HINT: The third parameter for check_box_tag is a boolean that checks the box when set to true. -->
-        <li id="todo_<%= todo.id %>"><%= check_box_tag "todos", todo.id, false %><article><%= todo.name %></article> <%= link_to "X", [@list, todo], :method => "delete", :class => "delete_todo" %> <%= link_to "Edit", edit_list_todo_path(@list,todo), :class => "edit_todo" %></li>
+        <li id="todo_<%= todo.id %>"><%= check_box_tag "todos", todo.id, todo.completed? %><article><%= todo.name %></article> <%= link_to "X", [@list, todo], :method => "delete", :class => "delete_todo" %> <%= link_to "Edit", edit_list_todo_path(@list,todo), :class => "edit_todo" %></li>
       <% end %>
     </ul>
   <% end %>
